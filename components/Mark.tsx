@@ -1,0 +1,1 @@
+export default function Mark({light=false,size=42}:{light?:boolean;size?:number}){return<span className={`brand-mark ${light?"brand-mark--light":""}`} style={{width:size,height:size}} aria-hidden="true"><i/><i/><i/><i/><b/></span>}

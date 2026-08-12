@@ -1,0 +1,1 @@
+import Info from"@/components/Info";import Lookup from"@/components/Lookup";export const metadata={title:"Find booking",robots:{index:false}};export default function Page(){return<Info kicker="Booking lookup" title="Return to your booking." intro="Enter the reference and secure key from the link created during checkout."><Lookup/></Info>}

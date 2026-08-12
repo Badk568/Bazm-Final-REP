@@ -1,0 +1,11 @@
+export type EventStatus="UPCOMING"|"SOLD_OUT"|"POSTPONED"|"COMPLETED"|"CANCELLED";
+export type OrderStatus="AWAITING_PAYMENT_PROOF"|"PAYMENT_PROOF_SUBMITTED"|"UNDER_ORGANISER_REVIEW"|"PAYMENT_REJECTED"|"CONFIRMED"|"EXPIRED"|"CANCELLED"|"REFUNDED";
+export type Role="ADMIN"|"EVENT_MANAGER"|"DOOR_STAFF";
+export type Tier={id:string;name:string;description?:string;price:number;capacity:number;sold:number;reserved?:number;available?:number;limit:number};
+export type Event={id:string;slug:string;title:string;category:string;status:EventStatus;date:string;doors:string;start:string;duration:string;venue:string;summary:string;description:string;image:string;host:string;age:string;language:string;accessibility:string;featured?:boolean;ticketingState?:"OPEN"|"NOT_ON_SALE"|"SOLD_OUT";tiers:Tier[]};
+export type Proof={id:string;storageKey:string;mime:string;size:number;bytes:Uint8Array;uploadedAt:string;sender:string;transaction:string;transferAt:string;note:string;version:number;metadataStripped:boolean};
+export type Refund={amount:number;method:string;reference?:string;reason:string;recordedAt:string;actor:string};
+export type Order={id:string;reference:string;accessKey:string;eventId:string;tierId:string;quantity:number;unitPrice:number;fee:number;total:number;currency:"PKR";fullName:string;email:string;phone:string;status:OrderStatus;createdAt:string;expiresAt:string;submittedAt?:string;reviewStartedAt?:string;confirmedAt?:string;proof?:Proof;customerReason?:string;internalNote?:string;tickets?:string[];refund?:Refund};
+export type TransferSettings={paymentMethod:string;providerName:string;accountTitle:string;accountIdentifier:string;instructions:string;proofDeadlineMinutes:number;rejectionResubmitMinutes:number;supportContact:string;receiptRetentionDays:number;placeholderActive:boolean;updatedAt:string};
+export type Audit={id:string;action:string;reference?:string;entity:string;at:string;actor:string;note?:string};
+export type CheckInRecord={ticketId:string;reference:string;eventId:string;checkedAt:string;staff:string;undoneAt?:string;undoReason?:string};
