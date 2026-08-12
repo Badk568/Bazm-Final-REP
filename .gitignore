@@ -1,0 +1,5 @@
+.data/
+storage/event-images/
+.env.local
+.next/
+node_modules/
